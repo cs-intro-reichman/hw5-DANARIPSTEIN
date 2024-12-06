@@ -108,7 +108,7 @@ public class ScrabbleTest {
         }
     }
 
-    private static void testPlayHandWithMockInput() {
+    public static void testPlayHandWithMockInput() {
         System.out.println("\nTesting playHand with mock input (hand: aretiin):");
         Scrabble.init();
         // Test with multiple valid words that can be made from "aretiin"
@@ -142,7 +142,7 @@ public class ScrabbleTest {
         }
     }
 
-    private static void testPlayGameWithMockInput() {
+    public static void testPlayGameWithMockInput() {
         System.out.println("\nTesting playGame exists:");
         
         // Mock input with "e" to end game immediately
