@@ -28,6 +28,7 @@ public class MyString {
         }
         return counter;
     }
+
     /**
      * Returns true if str1 is a subset string str2, false otherwise
      * Examples:
@@ -43,12 +44,11 @@ public class MyString {
     public static boolean subsetOf(String str1, String str2) {
         for (char c : str1.toCharArray()) {
             if (countChar(str1, c) > countChar(str2, c)) {
-                return false; 
+                return false;
             }
         }
-        return true; 
+        return true;
     }
-    
 
     /**
      * Returns a string which is the same as the given string, with a space
@@ -60,6 +60,9 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
+        if (str.length() == 0) {
+            return "";
+        }
         String newStr = "";
         for (int i = 0; i < str.length() - 1; i++) {
             newStr = newStr + str.charAt(i) + " ";
@@ -104,12 +107,15 @@ public class MyString {
             boolean exist = false;
             newString = "";
             for (int j = 0; j < str2.length(); j++) {
-                if (str1.charAt(i) != str2.charAt(j) || (exist == true))
-                    newString = newString + str2.charAt(j);
-                else
+                if (str1.charAt(i) == str2.charAt(j)) {
                     exist = true;
+                    str2 = str2.substring(0, j) + str2.substring(j + 1);
+                    break;
+                }
             }
-            str2 = newString;
+            if (!exist) {
+                newString += str1.charAt(i);
+            }
         }
         return newString;
     }
