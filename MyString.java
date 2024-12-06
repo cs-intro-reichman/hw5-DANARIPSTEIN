@@ -104,23 +104,28 @@ public class MyString {
     public static String remove(String str1, String str2) {
         String newString = "";
         String tempStr2 = str2;
+    
         for (int i = 0; i < str1.length(); i++) {
             boolean exist = false;
-            
-            for (int j = 0; j < str2.length(); j++) {
-                if (str1.charAt(i) == str2.charAt(j)) {
+    
+            for (int j = 0; j < tempStr2.length(); j++) { // השתמש ב-tempStr2 כדי לעקוב אחרי המחרוזת הנותרת
+                if (str1.charAt(i) == tempStr2.charAt(j)) {
                     exist = true;
+                    // עדכן את tempStr2 כך שיסיר את התו הנמצא
                     tempStr2 = tempStr2.substring(0, j) + tempStr2.substring(j + 1);
-                    break;
+                    break; // צא מהלולאה הפנימית אחרי שמצאת את התו
                 }
             }
+    
+            // אם התו מ-str1 לא נמצא ב-tempStr2, הוסף אותו למחרוזת החדשה
             if (!exist) {
                 newString += str1.charAt(i);
             }
         }
-        return newString;
+    
+        return newString; // החזר את התוצאה
     }
-
+    
     /**
      * Returns a string consisting of the given string, with the given
      * character inserted randomly somewhere in the string.
