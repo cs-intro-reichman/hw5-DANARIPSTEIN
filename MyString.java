@@ -103,13 +103,14 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
         String newString = "";
+        String tempStr2 = str2;
         for (int i = 0; i < str1.length(); i++) {
             boolean exist = false;
-            newString = "";
+            
             for (int j = 0; j < str2.length(); j++) {
                 if (str1.charAt(i) == str2.charAt(j)) {
                     exist = true;
-                    str2 = str2.substring(0, j) + str2.substring(j + 1);
+                    tempStr2 = tempStr2.substring(0, j) + tempStr2.substring(j + 1);
                     break;
                 }
             }
