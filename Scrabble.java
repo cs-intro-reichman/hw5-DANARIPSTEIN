@@ -113,7 +113,7 @@ public class Scrabble {
 				break;
 			}
 			if (!isWordInDictionary(input) || !MyString.subsetOf(input, hand))
-				System.out.println("No such word in the dictionary. Try again.");
+				System.out.println("Invalid word. Try again.");
 			else {
 				hand = MyString.remove(hand,input);
 				int wordScore = wordScore(input);
@@ -165,7 +165,7 @@ public class Scrabble {
 		// testCreateHands();
 		// testPlayHands();
 		//  playGame();
-		ScrabbleTest.testPlayHandWithMockInput();
+		// ScrabbleTest.testPlayHandWithMockInput();
 	}
 
 	public static void testBuildingTheDictionary() {
